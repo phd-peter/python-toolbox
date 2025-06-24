@@ -11,8 +11,10 @@ from typing import Dict, List, Optional, Any
 from openai import OpenAI
 from dotenv import load_dotenv
 
-# 환경변수 로드
-load_dotenv('.env', override=True)
+# 환경변수 로드 - 현재 스크립트 파일과 같은 디렉토리에서 .env 파일 찾기
+script_dir = os.path.dirname(os.path.abspath(__file__)) # 현재 실행되는 파일의 절대경로 중 dirname 추출
+env_path = os.path.join(script_dir, '.env') # 위에서 찾은 절대경로안에 있는 .env 파일 경로 제작
+load_dotenv(env_path, override=True) # 환경변수 로드
 
 
 def setup_openai_client() -> OpenAI:
