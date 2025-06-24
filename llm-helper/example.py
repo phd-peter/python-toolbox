@@ -38,8 +38,24 @@ def main():
     
     print("\n" + "="*50 + "\n")
     
-    # 예제 3: 다양한 모델과 temperature 사용
-    print("3. 다른 설정으로 LLM 호출:")
+    # 예제 3: 변수를 활용한 프롬프트 (f-string 사용)
+    print("3. 변수를 활용한 프롬프트 예제:")
+    try:
+        topic = "머신러닝"
+        level = "초보자"
+        prompt = f"""{topic}에 대해 {level}가 이해할 수 있도록 
+        핵심 개념 3가지를 간단히 설명해줘"""
+        
+        print(f"사용된 프롬프트: {prompt}")
+        print("="*30)
+        print_llm_response(prompt)
+    except Exception as e:
+        print(f"오류: {e}")
+    
+    print("\n" + "="*50 + "\n")
+    
+    # 예제 4: 다양한 모델과 temperature 사용
+    print("4. 다른 설정으로 LLM 호출:")
     try:
         creative_response = get_llm_response(
             "창의적인 아이디어를 하나 제안해줘", 
@@ -51,8 +67,8 @@ def main():
     
     print("\n" + "="*50 + "\n")
     
-    # 예제 4: 현재 디렉토리 파일 목록
-    print("4. 현재 디렉토리의 파일 목록:")
+    # 예제 5: 현재 디렉토리 파일 목록
+    print("5. 현재 디렉토리의 파일 목록:")
     try:
         files = list_files_in_directory()
         print(f"파일 개수: {len(files)}")
@@ -64,8 +80,8 @@ def main():
     
     print("\n" + "="*50 + "\n")
     
-    # 예제 5: CSV 파일 읽기 (파일이 있는 경우)
-    print("5. CSV 파일 읽기 예제:")
+    # 예제 6: CSV 파일 읽기 (파일이 있는 경우)
+    print("6. CSV 파일 읽기 예제:")
     csv_file = "sample_data.csv"
     try:
         # 실제 CSV 파일이 있다면 읽어서 출력
